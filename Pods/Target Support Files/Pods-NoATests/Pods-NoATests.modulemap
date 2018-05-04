@@ -1,0 +1,6 @@
+framework module Pods_NoATests {
+  umbrella header "Pods-NoATests-umbrella.h"
+
+  export *
+  module * { export * }
+}
