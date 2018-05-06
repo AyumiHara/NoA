@@ -22,7 +22,9 @@
 		1E41B16F2091FAF9007F7F21 /* TomodatiTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */; };
 		1EAAA01E20940AE30024ED4D /* TomodatiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */; };
 		1EAAA01F20940AE30024ED4D /* TomodatiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */; };
-		1EAAA0D12094504E0024ED4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EAAA0D02094504E0024ED4D /* GoogleService-Info.plist */; };
+		1EF5BF09209F45D700274827 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5BF08209F45D700274827 /* GoogleService-Info.plist */; };
+		1EF5BF0B209F50EC00274827 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5BF0A209F50EC00274827 /* SignUpViewController.swift */; };
+		1EF5BF0D209F519000274827 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5BF0C209F519000274827 /* LogInViewController.swift */; };
 		2B36401671BE9B526465AE19 /* Pods_NoA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDC705D9E963C2EE419B82E /* Pods_NoA.framework */; };
 		8532E3A2D5182A6BE0655E3F /* Pods_NoAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E7E5D6FA750BA0CCCBF7DE /* Pods_NoAUITests.framework */; };
 /* End PBXBuildFile section */
@@ -65,13 +67,21 @@
 		1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TomodatiTableViewController.xib; sourceTree = "<group>"; };
 		1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomodatiTableViewCell.swift; sourceTree = "<group>"; };
 		1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TomodatiTableViewCell.xib; sourceTree = "<group>"; };
-		1EAAA0D02094504E0024ED4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1EF5BF08209F45D700274827 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1EF5BF0A209F50EC00274827 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1EF5BF0C209F519000274827 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		20265FA0D52ED88C28B8C214 /* Pods-NoAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoAUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoAUITests/Pods-NoAUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		231DBAEFE91AEE1636599EA4 /* Pods-NoA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoA.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoA/Pods-NoA.release.xcconfig"; sourceTree = "<group>"; };
 		2B4134880EF31243330D1B82 /* Pods-NoA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoA/Pods-NoA.debug.xcconfig"; sourceTree = "<group>"; };
+		40EA48948072BE5707F029FA /* Pods-NoATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoATests/Pods-NoATests.debug.xcconfig"; sourceTree = "<group>"; };
 		56E7E5D6FA750BA0CCCBF7DE /* Pods_NoAUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoAUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AD1D0FFC3B7948554641DD /* Pods-NoA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoA/Pods-NoA.debug.xcconfig"; sourceTree = "<group>"; };
 		6A326F41D41F76C7894D50B1 /* Pods-NoAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoAUITests/Pods-NoAUITests.release.xcconfig"; sourceTree = "<group>"; };
 		751F178A0B39CDDD2E3ADAF7 /* Pods-NoAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoAUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoAUITests/Pods-NoAUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A741CFF8B37C7D759DA16D45 /* Pods-NoATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoATests/Pods-NoATests.debug.xcconfig"; sourceTree = "<group>"; };
+		A836190DDB12077C40F92D65 /* Pods-NoAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoAUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoAUITests/Pods-NoAUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BDDC705D9E963C2EE419B82E /* Pods_NoA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9379219BAE5AB730D3D2349 /* Pods-NoATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoATests/Pods-NoATests.release.xcconfig"; sourceTree = "<group>"; };
 		E086D5056B1FC6FAF2367C50 /* Pods-NoATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoATests/Pods-NoATests.release.xcconfig"; sourceTree = "<group>"; };
 		E7FDB40C47F4A8154868C64F /* Pods_NoATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4125029FD7F1860DEB6DF7 /* Pods-NoA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoA.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoA/Pods-NoA.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +133,7 @@
 				1E41B1552091ED9A007F7F21 /* NoAUITests */,
 				1E41B1342091ED98007F7F21 /* Products */,
 				04B80C7ACF28802F2E1E768E /* Frameworks */,
+				5794172C5338860290CEF398 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +153,8 @@
 				1E41B1362091ED98007F7F21 /* AppDelegate.swift */,
 				1E41B1382091ED98007F7F21 /* ViewController.swift */,
 				1E41B1662091FA83007F7F21 /* HomeViewController.swift */,
+				1EF5BF0A209F50EC00274827 /* SignUpViewController.swift */,
+				1EF5BF0C209F519000274827 /* LogInViewController.swift */,
 				1E41B13A2091ED98007F7F21 /* Main.storyboard */,
 				1E41B13D2091ED9A007F7F21 /* Assets.xcassets */,
 				1E41B13F2091ED9A007F7F21 /* LaunchScreen.storyboard */,
@@ -152,7 +165,7 @@
 				1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */,
 				1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */,
 				1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */,
-				1EAAA0D02094504E0024ED4D /* GoogleService-Info.plist */,
+				1EF5BF08209F45D700274827 /* GoogleService-Info.plist */,
 				D0829099AF4E41CAA191A21F /* Pods */,
 			);
 			path = NoA;
@@ -174,6 +187,19 @@
 				1E41B1582091ED9A007F7F21 /* Info.plist */,
 			);
 			path = NoAUITests;
+			sourceTree = "<group>";
+		};
+		5794172C5338860290CEF398 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59AD1D0FFC3B7948554641DD /* Pods-NoA.debug.xcconfig */,
+				231DBAEFE91AEE1636599EA4 /* Pods-NoA.release.xcconfig */,
+				40EA48948072BE5707F029FA /* Pods-NoATests.debug.xcconfig */,
+				C9379219BAE5AB730D3D2349 /* Pods-NoATests.release.xcconfig */,
+				20265FA0D52ED88C28B8C214 /* Pods-NoAUITests.debug.xcconfig */,
+				A836190DDB12077C40F92D65 /* Pods-NoAUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D0829099AF4E41CAA191A21F /* Pods */ = {
@@ -201,6 +227,7 @@
 				1E41B12F2091ED98007F7F21 /* Sources */,
 				1E41B1302091ED98007F7F21 /* Frameworks */,
 				1E41B1312091ED98007F7F21 /* Resources */,
+				4D3AFE9DF5FD0CFCE51523F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,7 +329,7 @@
 				1E41B1412091ED9A007F7F21 /* LaunchScreen.storyboard in Resources */,
 				1E41B13E2091ED9A007F7F21 /* Assets.xcassets in Resources */,
 				1E41B13C2091ED98007F7F21 /* Main.storyboard in Resources */,
-				1EAAA0D12094504E0024ED4D /* GoogleService-Info.plist in Resources */,
+				1EF5BF09209F45D700274827 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +366,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D3AFE9DF5FD0CFCE51523F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NoA/Pods-NoA-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoA/Pods-NoA-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		613BFF1BDB9987651B91988D /* [CP] Check Pods Manifest.lock */ = {
@@ -386,6 +433,8 @@
 			files = (
 				1E41B16E2091FAF9007F7F21 /* TomodatiTableViewController.swift in Sources */,
 				1E41B1392091ED98007F7F21 /* ViewController.swift in Sources */,
+				1EF5BF0D209F519000274827 /* LogInViewController.swift in Sources */,
+				1EF5BF0B209F50EC00274827 /* SignUpViewController.swift in Sources */,
 				1E41B1652091FA71007F7F21 /* TourokuViewController.swift in Sources */,
 				1EAAA01E20940AE30024ED4D /* TomodatiTableViewCell.swift in Sources */,
 				1E41B1372091ED98007F7F21 /* AppDelegate.swift in Sources */,
