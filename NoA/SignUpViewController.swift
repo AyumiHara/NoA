@@ -23,20 +23,12 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         passwordTextField.delegate = self //デリゲートをセット
         passwordTextField.isSecureTextEntry = true // 文字を非表示に
         
-        self.layoutFacebookButton()
+        if self.checkUserVerify() {
+            self.transitionToView()
+        }
         
-        func transitionToLogin() {
-            self.performSegue(withIdentifier: "toLogin", sender: self)
-        }
-        //ListViewControllerへの遷移
-        func transitionToView() {
-            self.performSegue(withIdentifier: "toView", sender: self)
-        }
-        //Returnキーを押すと、キーボードを隠す
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
-        }
+       // self.layoutFacebookButton()
+        
         
         
     
@@ -57,10 +49,71 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         transitionToLogin()
     }
     
-    @IBAction func willLoginWithFacebook() {
+/*    @IBAction func willLoginWithFacebook() {
         self.loginWithFacebook()
     }
-
+ */
+    
+    func transitionToLogin() {
+        self.performSegue(withIdentifier: "toLogin", sender: self)
+    }
+    //ListViewControllerへの遷移
+    func transitionToView() {
+        self.performSegue(withIdentifier: "toView", sender: self)
+    }
+    //Returnキーを押すと、キーボードを隠す
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func checkUserVerify()  -> Bool {
+        guard let user = FIRAuth.auth()?.currentUser else { return false }
+        return user.isEmailVerified
+    }
+    
+    func signup() {
+        //emailTextFieldとpasswordTextFieldに文字がなければ、その後の処理をしない
+        guard let email = emailTextField.text else  { return }
+        guard let password = passwordTextField.text else { return }
+        //FIRAuth.auth()?.createUserWithEmailでサインアップ
+        //第一引数にEmail、第二引数にパスワード
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+            
+            //エラーがないことを確認
+            if error == nil{
+                // メールのバリデーションを行う
+                user?.sendEmailVerification(completion: { (error) in
+                    if error == nil {
+                        // エラーがない場合にはそのままログイン画面に飛び、ログインしてもらう
+                        self.transitionToLogin()
+                        print("大丈夫なメール")
+                    }else {
+                        self.presentValidateAlert()
+                        print("\(error?.localizedDescription)")
+                        print("大丈夫じゃないメール")
+                    }
+                })
+            }else {
+                self.presentValidateAlert()
+                print("\(error?.localizedDescription)")
+                print("これも大丈夫じゃないメール")
+            }
+        })
+    }
+    
+    
+    
+    func checkUserValidate(user: FIRUser)  -> Bool {
+        return user.isEmailVerified
+    }
+    // メールのバリデーションが完了していない場合のアラートを表示
+    func presentValidateAlert() {
+        let alert = UIAlertController(title: "メール認証", message: "メール認証を行ってください", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        print("アラート表示")
+    }
     
     
 
