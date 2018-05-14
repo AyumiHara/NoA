@@ -16,7 +16,8 @@ class HomeViewController: UIViewController {
     var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
     
     var snap: FIRDataSnapshot! //FetchしたSnapshotsを格納する変数
-
+    var kosu: Int = 0
+    var dainyu: Int = 0
     
     @IBOutlet var namaeLabel: UILabel!
     @IBOutlet var adanaLabel: UILabel!
@@ -24,15 +25,14 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.read()
-        let item = contentArray.description
+        dainyu = kosu - 1
+        print(dainyu)
         //itemの中身を辞書型に変換
-        let content = item.value as! Dictionary<String, AnyObject>
-        //contentという添字で保存していた投稿内容を表示
-        namaeLabel.text = String(describing: content["namae"]!)
-
+      
         // Do any additional setup after loading the view.
+ 
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,10 +47,22 @@ class HomeViewController: UIViewController {
         ref.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
             if snapShots.children.allObjects is [FIRDataSnapshot] {
                 print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+                self.kosu = Int(snapShots.childrenCount)
+                print("個数\(self.kosu)")
                 
                 print("snapShot...\(snapShots)") //読み込んだデータをプリント
                 
                 self.snap = snapShots
+                
+                let item = self.contentArray[Int(self.dainyu)]
+                print("ここを見て")
+                print(self.contentArray[self.kosu])
+                let content = item.value as! Dictionary<String, AnyObject>
+                //contentという添字で保存していた投稿内容を表示
+                self.namaeLabel.text = String(describing: content["namaecontent"]!)
+                self.adanaLabel.text = String(describing: content["adanacontent"]!)
+                self.syoukaiTestField.text = String(describing: content["syoukaicontent"])
+                
                 
             }
             self.reload(snap: self.snap)
@@ -65,6 +77,7 @@ class HomeViewController: UIViewController {
             //1つになっているFIRDataSnapshotを分割し、配列に入れる
             for item in snap.children {
                 contentArray.append(item as! FIRDataSnapshot)
+                print(contentArray)
             }
             // ローカルのデータベースを更新
             ref.child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)

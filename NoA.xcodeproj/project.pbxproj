@@ -20,6 +20,7 @@
 		1E41B16B2091FACE007F7F21 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B16A2091FACE007F7F21 /* QRViewController.swift */; };
 		1E41B16E2091FAF9007F7F21 /* TomodatiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B16C2091FAF9007F7F21 /* TomodatiTableViewController.swift */; };
 		1E41B16F2091FAF9007F7F21 /* TomodatiTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */; };
+		1E87C43F20A9D9160007D8E5 /* icon_150030_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87C43E20A9D9160007D8E5 /* icon_150030_256.png */; };
 		1EAAA01E20940AE30024ED4D /* TomodatiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */; };
 		1EAAA01F20940AE30024ED4D /* TomodatiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */; };
 		1EF5BF09209F45D700274827 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5BF08209F45D700274827 /* GoogleService-Info.plist */; };
@@ -65,6 +66,7 @@
 		1E41B16A2091FACE007F7F21 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		1E41B16C2091FAF9007F7F21 /* TomodatiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomodatiTableViewController.swift; sourceTree = "<group>"; };
 		1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TomodatiTableViewController.xib; sourceTree = "<group>"; };
+		1E87C43E20A9D9160007D8E5 /* icon_150030_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_150030_256.png; path = ../../../Downloads/icon_150030_256.png; sourceTree = "<group>"; };
 		1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomodatiTableViewCell.swift; sourceTree = "<group>"; };
 		1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TomodatiTableViewCell.xib; sourceTree = "<group>"; };
 		1EF5BF08209F45D700274827 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		1E41B1352091ED98007F7F21 /* NoA */ = {
 			isa = PBXGroup;
 			children = (
+				1E87C43E20A9D9160007D8E5 /* icon_150030_256.png */,
 				1E41B1362091ED98007F7F21 /* AppDelegate.swift */,
 				1E41B1382091ED98007F7F21 /* ViewController.swift */,
 				1E41B1662091FA83007F7F21 /* HomeViewController.swift */,
@@ -326,6 +329,7 @@
 			files = (
 				1EAAA01F20940AE30024ED4D /* TomodatiTableViewCell.xib in Resources */,
 				1E41B16F2091FAF9007F7F21 /* TomodatiTableViewController.xib in Resources */,
+				1E87C43F20A9D9160007D8E5 /* icon_150030_256.png in Resources */,
 				1E41B1412091ED9A007F7F21 /* LaunchScreen.storyboard in Resources */,
 				1E41B13E2091ED9A007F7F21 /* Assets.xcassets in Resources */,
 				1E41B13C2091ED98007F7F21 /* Main.storyboard in Resources */,

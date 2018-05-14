@@ -215,16 +215,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXu-eZ-YlV">
-                                <rect key="frame" x="163" y="357" width="196" height="196"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_150030_256.png" translatesAutoresizingMaskIntoConstraints="NO" id="HXu-eZ-YlV">
+                                <rect key="frame" x="163" y="357" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rn-eJ-lag">
+                                <rect key="frame" x="163" y="357" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="これがボタン"/>
+                                <connections>
+                                    <action selector="tap" destination="BYZ-38-t0r" eventType="touchUpInside" id="CJ6-9k-yBr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="adanaTextField" destination="WSj-S5-Cqa" id="dk9-pZ-YMr"/>
+                        <outlet property="kaoImageButton" destination="4rn-eJ-lag" id="jqz-JC-eth"/>
                         <outlet property="kaoImageView" destination="HXu-eZ-YlV" id="oaT-yr-QOp"/>
                         <outlet property="namaeTextField" destination="aeK-Px-hn1" id="nt3-Vw-B50"/>
                         <outlet property="snsTextField" destination="35R-AS-Dlx" id="hi0-JR-dmG"/>
@@ -235,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="32"/>
+            <point key="canvasLocation" x="525.60000000000002" y="31.934032983508249"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="J4a-dE-fEA">
@@ -374,6 +383,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_150030_256.png" width="256" height="256"/>
         <image name="戻る" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>

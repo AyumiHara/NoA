@@ -25,6 +25,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         
         if self.checkUserVerify() {
             self.transitionToView()
+            print("遷移なう")
         }
         
        // self.layoutFacebookButton()
@@ -60,6 +61,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     //ListViewControllerへの遷移
     func transitionToView() {
         self.performSegue(withIdentifier: "toView", sender: self)
+        print("これで遷移してます")
     }
     //Returnキーを押すと、キーボードを隠す
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

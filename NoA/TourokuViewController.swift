@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class TourokuViewController: UIViewController,UITextFieldDelegate {
+class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let ref = FIRDatabase.database().reference() //FirebaseDatabaseのルートを指定
     
@@ -20,10 +20,36 @@ class TourokuViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var snsTextField : UITextField!
     @IBOutlet var syoukaiTextField : UITextField!
     @IBOutlet var kaoImageView : UIImageView!
+    @IBOutlet var kaoImageButton : UIButton!
     
-
+    func presentPickerController(sourceType: UIImagePickerControllerSourceType){
+        if UIImagePickerController.isSourceTypeAvailable(sourceType){
+            let picker = UIImagePickerController()
+            picker.sourceType = sourceType
+            picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            self.present(picker,animated: true,completion: nil)
+        }
+        
+    }
     
-
+/*    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        self.dismiss(animated: true, completion: nil)
+        
+        kaoImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+    }
+ */
+    
+    // 写真を選んだ後に呼ばれる処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // 選択した写真を取得する
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        // ビューに表示する
+        self.kaoImageView.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +59,7 @@ class TourokuViewController: UIViewController,UITextFieldDelegate {
         syussinTextfield.delegate = self
         snsTextField.delegate = self
         syoukaiTextField.delegate = self
+        
     
 
         // Do any additional setup after loading the view.
@@ -55,6 +82,7 @@ class TourokuViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
+    
     func create() {
         //textFieldになにも書かれてない場合は、その後の処理をしない
         guard let namaetext = namaeTextField.text else { return }
@@ -73,6 +101,40 @@ class TourokuViewController: UIViewController,UITextFieldDelegate {
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
         self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"namaecontent": namaetext,"adanacontent": adanatext,"syumicontent": syumitext,"syussincontent": syussintext,"snscontent": snstext,"syoukaicontent": syoukaitext, "date": FIRServerValue.timestamp()])
+        
+    }
+    
+    @IBAction func tap() {
+        let actionAlert = UIAlertController(title: "アイコンを追加", message: "写真を撮影または洗濯してください", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        //UIAlertControllerにカビゴンのアクションを追加する
+        let kabigonAction = UIAlertAction(title: "カメラロール", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("カメラロールが選択されました。")
+            self.presentPickerController(sourceType: .photoLibrary)
+            
+            
+        })
+        actionAlert.addAction(kabigonAction)
+        
+        //UIAlertControllerにピカチュウのアクションを追加する
+        let pikachuAction = UIAlertAction(title: "カメラ", style: UIAlertActionStyle.default, handler: {
+            (action: UIAlertAction!) in
+            print("カメラが選択されました。")
+            self.presentPickerController(sourceType: .camera)
+        })
+        actionAlert.addAction(pikachuAction)
+        
+        //UIAlertControllerにキャンセルのアクションを追加する
+        let cancelAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+            (action: UIAlertAction!) in
+            print("キャンセルのシートが押されました。")
+            
+        })
+        actionAlert.addAction(cancelAction)
+        
+        //アクションを表示する
+        self.present(actionAlert, animated: true, completion: nil)
         
     }
     
