@@ -8,7 +8,8 @@ target 'NoA' do
   # Pods for NoA
   pod 'Firebase' 
   pod 'Firebase/Auth' 
-  pod 'Firebase/Database' 
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   target 'NoATests' do
     inherit! :search_paths

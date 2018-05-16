@@ -11,24 +11,37 @@ import Firebase
 
 class HomeViewController: UIViewController {
     
-     let ref = FIRDatabase.database().reference()
+    let ref = Database.database().reference()
     
-    var contentArray: [FIRDataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
+    var contentArray: [DataSnapshot] = [] //Fetchしたデータを入れておく配列、この配列をTableViewで表示
     
-    var snap: FIRDataSnapshot! //FetchしたSnapshotsを格納する変数
+    var snap: DataSnapshot! //FetchしたSnapshotsを格納する変数
     var kosu: Int = 0
     var dainyu: Int = 0
+    var namae: String = ""
+    var adana: String = ""
+    var syoukai: String = ""
+    var QRImage: UIImage!
     
     @IBOutlet var namaeLabel: UILabel!
     @IBOutlet var adanaLabel: UILabel!
-    @IBOutlet var syoukaiTestField: UITextField!
+    @IBOutlet var syoukaiTextView: UITextView!
+    @IBOutlet var QRImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.read()
+        //self.read()
         dainyu = kosu - 1
         print(dainyu)
-        //itemの中身を辞書型に変換
+        print("QRイメージおくれてますか")
+        print(QRImage)
+        
+       namaeLabel.text = String(namae)
+       adanaLabel.text = String(adana)
+       syoukaiTextView.text = String(syoukai)
+       QRImageView.image = QRImage!
+       //QRImageView.image = QRImage!
+       
       
         // Do any additional setup after loading the view.
  
@@ -41,11 +54,11 @@ class HomeViewController: UIViewController {
     }
     
     
-    func read()  {
+/*    func read()  {
         //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
-        ref.child((FIRAuth.auth()?.currentUser?.uid)!).observe(.value, with: {(snapShots) in
-            if snapShots.children.allObjects is [FIRDataSnapshot] {
+        ref.child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
+            if snapShots.children.allObjects is [DataSnapshot] {
                 print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
                 self.kosu = Int(snapShots.childrenCount)
                 print("個数\(self.kosu)")
@@ -68,21 +81,27 @@ class HomeViewController: UIViewController {
             self.reload(snap: self.snap)
         })
     }
-    
-    func reload(snap: FIRDataSnapshot) {
+*/
+    func reload(snap: DataSnapshot) {
         if snap.exists() {
             print(snap)
             //FIRDataSnapshotが存在するか確認
             contentArray.removeAll()
             //1つになっているFIRDataSnapshotを分割し、配列に入れる
             for item in snap.children {
-                contentArray.append(item as! FIRDataSnapshot)
+                contentArray.append(item as! DataSnapshot)
                 print(contentArray)
             }
             // ローカルのデータベースを更新
-            ref.child((FIRAuth.auth()?.currentUser?.uid)!).keepSynced(true)
+            ref.child((Auth.auth().currentUser?.uid)!).keepSynced(true)
         }
     }
+    
+    @IBAction func composeBottunTapped() {
+        self.performSegue(withIdentifier: "Compose", sender: self)
+    }
+    
+  
 
     /*
     // MARK: - Navigation

@@ -8,10 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let ref = FIRDatabase.database().reference() //FirebaseDatabaseのルートを指定
+    let ref = Database.database().reference() //FirebaseDatabaseのルートを指定
     
     @IBOutlet var namaeTextField : UITextField!
     @IBOutlet var adanaTextField : UITextField!
@@ -21,6 +22,8 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
     @IBOutlet var syoukaiTextField : UITextField!
     @IBOutlet var kaoImageView : UIImageView!
     @IBOutlet var kaoImageButton : UIButton!
+    
+    var okuruImage: UIImage!
     
     func presentPickerController(sourceType: UIImagePickerControllerSourceType){
         if UIImagePickerController.isSourceTypeAvailable(sourceType){
@@ -60,7 +63,13 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
         snsTextField.delegate = self
         syoukaiTextField.delegate = self
         
-    
+        
+        
+    /*    let QRData = String(stringInterpolation: namaeTextField.text!, adanaTextField.text!, syumiTextField.text!, snsTextField.text!, syoukaiTextField.text!)
+        
+        print(QRData)
+        
+    */
 
         // Do any additional setup after loading the view.
     }
@@ -73,7 +82,20 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
     @IBAction func touroku(sender: UIButton) {
         //投稿のためのメソッド
         create()
+/*        print("(＾ω＾)")
+        print(okuruImage)
         
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            var secondViewController:HomeViewController = segue.destination as! HomeViewController
+            secondViewController.namae = namaeTextField.text!
+            secondViewController.adana = adanaTextField.text!
+            secondViewController.syoukai = syoukaiTextField.text!
+            secondViewController.QRImage = okuruImage
+            print("これが送るイメージ")
+            print(okuruImage)
+        }
+        
+*/
     }
     
     //Returnキーを押すと、キーボードを隠す
@@ -81,6 +103,7 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
         textField.resignFirstResponder()
         return true
     }
+
     
     
     func create() {
@@ -92,17 +115,64 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
         guard let snstext = snsTextField.text else { return }
         guard let syoukaitext = syoukaiTextField.text else { return }
         
+        let QRData = String(stringInterpolation: namaeTextField.text!,"|", adanaTextField.text!,"|", syumiTextField.text!,"|", snsTextField.text!,"|", syoukaiTextField.text!)
         
+        print("これがQRデータ")
+        print(QRData)
         
+        let data = QRData.data(using: String.Encoding.utf8)!
         
+        let qr = CIFilter(name: "CIQRCodeGenerator", withInputParameters: ["inputMessage": data, "inputCorrectionLevel": "M"])!
+        let sizeTransform = CGAffineTransform(scaleX: 10, y: 10)
+        let qrImage = qr.outputImage!.transformed(by: sizeTransform)
+        //画像のリサイズ
+        let context = CIContext()
+        let cgImage = context.createCGImage(qrImage, from: qrImage.extent)
+        let createOkuruImage = UIImage(cgImage: cgImage!)
+        okuruImage = createOkuruImage
+        print(createOkuruImage)
+    
+        
+        let sendData:[String:Any] = [
+            "user": (Auth.auth().currentUser?.uid)!,
+            "namaecontent": namaetext,
+            "adanacontent": adanatext,
+            "syumicontent": syumitext,
+            "syussincontent": syussintext,
+            "snscontent": snstext,
+            "syoukaicontent": syoukaitext,
+            "date": ServerValue.timestamp()
+        ]
+        
+        let message = ref.child((Auth.auth().currentUser?.uid)!).childByAutoId()
+        
+         message.setValue(sendData)
+
         //ロートからログインしているユーザーのIDをchildにしてデータを作成
         //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((FIRAuth.auth()?.currentUser?.uid)!).childByAutoId().setValue(["user": (FIRAuth.auth()?.currentUser?.uid)!,"namaecontent": namaetext,"adanacontent": adanatext,"syumicontent": syumitext,"syussincontent": syussintext,"snscontent": snstext,"syoukaicontent": syoukaitext, "date": FIRServerValue.timestamp()])
+        /*self.ref.child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue["user",: (Auth.auth()?.currentUser?.uid)!,"namaecontent": namaetext,"adanacontent": adanatext,"syumicontent": syumitext,"syussincontent": syussintext,"snscontent": snstext,"syoukaicontent": syoukaitext, "date": ServerValue.timestamp()]
+ */
+        
         
     }
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        create()
+        print("送るイメージの確認")
+        print(okuruImage)
+        
+        var secondViewController:HomeViewController = segue.destination as! HomeViewController
+        secondViewController.namae = namaeTextField.text!
+        secondViewController.adana = adanaTextField.text!
+        secondViewController.syoukai = syoukaiTextField.text!
+        secondViewController.QRImage = okuruImage
+        print("これが送るイメージ")
+        print(okuruImage)
+    }
+
     
     @IBAction func tap() {
         let actionAlert = UIAlertController(title: "アイコンを追加", message: "写真を撮影または洗濯してください", preferredStyle: UIAlertControllerStyle.actionSheet)

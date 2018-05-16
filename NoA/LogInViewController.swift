@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,11 +22,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self //デリゲートをセット
         passwordTextField.delegate = self //デリゲートをセット
         passwordTextField.isSecureTextEntry  = true // 文字を非表示に
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         super.viewWillAppear(animated)
         //ログインしていれば、遷移
         //FIRAuthがユーザー認証のためのフレーム
@@ -36,7 +36,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func checkUserVerify()  -> Bool {
-        guard let user = FIRAuth.auth()?.currentUser else { return false }
+        guard let user = Auth.auth().currentUser else { return false }
         return user.isEmailVerified
     }
     
@@ -67,14 +67,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         //signInWithEmailでログイン
         //第一引数にEmail、第二引数にパスワードを取ります
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             //エラーがないことを確認
             if error == nil {
                 if let loginUser = user {
                     // バリデーションが完了しているか確認。完了ならそのままログイン
-                    if self.checkUserValidate(user: loginUser) {
+                    if self.checkUserValidate(user: Auth.auth().currentUser!) {
                         // 完了済みなら、ListViewControllerに遷移
-                        print(FIRAuth.auth()?.currentUser)
+                        print(Auth.auth().currentUser)
                         self.transitionToView()
                     }else {
                         // 完了していない場合は、アラートを表示
@@ -89,7 +89,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    func checkUserValidate(user: FIRUser)  -> Bool {
+    func checkUserValidate(user: User)  -> Bool {
         return user.isEmailVerified
     }
     // メールのバリデーションが完了していない場合のアラートを表示
@@ -102,7 +102,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func logout() {
         do {
             //do-try-catchの中で、FIRAuth.auth()?.signOut()を呼ぶだけで、ログアウトが完了
-            try FIRAuth.auth()?.signOut()
+            try Auth.auth().signOut()
             
             //先頭のNavigationControllerに遷移
             let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Nav")

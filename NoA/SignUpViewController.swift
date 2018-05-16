@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class SignUpViewController: UIViewController,UITextFieldDelegate {
     
@@ -70,7 +71,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     }
     
     func checkUserVerify()  -> Bool {
-        guard let user = FIRAuth.auth()?.currentUser else { return false }
+        guard let user = Auth.auth().currentUser else { return false }
         return user.isEmailVerified
     }
     
@@ -80,12 +81,12 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         guard let password = passwordTextField.text else { return }
         //FIRAuth.auth()?.createUserWithEmailでサインアップ
         //第一引数にEmail、第二引数にパスワード
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             
             //エラーがないことを確認
             if error == nil{
                 // メールのバリデーションを行う
-                user?.sendEmailVerification(completion: { (error) in
+                Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
                     if error == nil {
                         // エラーがない場合にはそのままログイン画面に飛び、ログインしてもらう
                         self.transitionToLogin()
@@ -106,7 +107,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     
     
-    func checkUserValidate(user: FIRUser)  -> Bool {
+    func checkUserValidate(user: User)  -> Bool {
         return user.isEmailVerified
     }
     // メールのバリデーションが完了していない場合のアラートを表示
