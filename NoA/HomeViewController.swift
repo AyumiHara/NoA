@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class HomeViewController: UIViewController {
     
@@ -40,7 +41,10 @@ class HomeViewController: UIViewController {
        adanaLabel.text = String(adana)
        syoukaiTextView.text = String(syoukai)
        QRImageView.image = QRImage!
-       //QRImageView.image = QRImage!
+      
+        if self.checkUserVerify() {
+           dispAlert()
+        }
        
       
         // Do any additional setup after loading the view.
@@ -51,6 +55,38 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+   
+    
+    func checkUserVerify()  -> Bool {
+        guard let user = Auth.auth().currentUser else { return false }
+        return user.isEmailVerified
+    }
+
+    
+    func dispAlert() {
+        
+        // ① UIAlertControllerクラスのインスタンスを生成
+        // タイトル, メッセージ, Alertのスタイルを指定する
+        // 第3引数のpreferredStyleでアラートの表示スタイルを指定する
+        let alert: UIAlertController = UIAlertController(title: "ログイン・サインアップ確認", message: "ログイン・サインアップ画面に移ります", preferredStyle:  UIAlertControllerStyle.alert)
+        
+        // ② Actionの設定
+        // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
+        // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
+        // OKボタン
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        // キャンセルボタン
+    
+        alert.addAction(defaultAction)
+        
+        // ④ Alertを表示
+        present(alert, animated: true, completion: nil)
     }
     
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1121BBC950DC4E899B881145 /* Pods_NoATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7FDB40C47F4A8154868C64F /* Pods_NoATests.framework */; };
+		1E0CCCE920C9A911009E092C /* NewTomodatiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CCCE820C9A911009E092C /* NewTomodatiViewController.swift */; };
 		1E41B1372091ED98007F7F21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B1362091ED98007F7F21 /* AppDelegate.swift */; };
 		1E41B1392091ED98007F7F21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B1382091ED98007F7F21 /* ViewController.swift */; };
 		1E41B13C2091ED98007F7F21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E41B13A2091ED98007F7F21 /* Main.storyboard */; };
@@ -18,11 +19,8 @@
 		1E41B1652091FA71007F7F21 /* TourokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B1642091FA71007F7F21 /* TourokuViewController.swift */; };
 		1E41B1672091FA83007F7F21 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B1662091FA83007F7F21 /* HomeViewController.swift */; };
 		1E41B16B2091FACE007F7F21 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B16A2091FACE007F7F21 /* QRViewController.swift */; };
-		1E41B16E2091FAF9007F7F21 /* TomodatiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B16C2091FAF9007F7F21 /* TomodatiTableViewController.swift */; };
-		1E41B16F2091FAF9007F7F21 /* TomodatiTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */; };
+		1E63D74620AD7A0E00D4D480 /* TomodatiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63D74520AD7A0E00D4D480 /* TomodatiViewController.swift */; };
 		1E87C43F20A9D9160007D8E5 /* icon_150030_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87C43E20A9D9160007D8E5 /* icon_150030_256.png */; };
-		1EAAA01E20940AE30024ED4D /* TomodatiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */; };
-		1EAAA01F20940AE30024ED4D /* TomodatiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */; };
 		1EF5BF09209F45D700274827 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5BF08209F45D700274827 /* GoogleService-Info.plist */; };
 		1EF5BF0B209F50EC00274827 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5BF0A209F50EC00274827 /* SignUpViewController.swift */; };
 		1EF5BF0D209F519000274827 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5BF0C209F519000274827 /* LogInViewController.swift */; };
@@ -48,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E0CCCE820C9A911009E092C /* NewTomodatiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTomodatiViewController.swift; sourceTree = "<group>"; };
 		1E41B1332091ED98007F7F21 /* NoA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E41B1362091ED98007F7F21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E41B1382091ED98007F7F21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,11 +63,8 @@
 		1E41B1642091FA71007F7F21 /* TourokuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourokuViewController.swift; sourceTree = "<group>"; };
 		1E41B1662091FA83007F7F21 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1E41B16A2091FACE007F7F21 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
-		1E41B16C2091FAF9007F7F21 /* TomodatiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomodatiTableViewController.swift; sourceTree = "<group>"; };
-		1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TomodatiTableViewController.xib; sourceTree = "<group>"; };
+		1E63D74520AD7A0E00D4D480 /* TomodatiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomodatiViewController.swift; sourceTree = "<group>"; };
 		1E87C43E20A9D9160007D8E5 /* icon_150030_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_150030_256.png; path = ../../../Downloads/icon_150030_256.png; sourceTree = "<group>"; };
-		1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomodatiTableViewCell.swift; sourceTree = "<group>"; };
-		1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TomodatiTableViewCell.xib; sourceTree = "<group>"; };
 		1EF5BF08209F45D700274827 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1EF5BF0A209F50EC00274827 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1EF5BF0C209F519000274827 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -160,14 +156,12 @@
 				1EF5BF0C209F519000274827 /* LogInViewController.swift */,
 				1E41B1642091FA71007F7F21 /* TourokuViewController.swift */,
 				1E41B16A2091FACE007F7F21 /* QRViewController.swift */,
+				1E63D74520AD7A0E00D4D480 /* TomodatiViewController.swift */,
+				1E0CCCE820C9A911009E092C /* NewTomodatiViewController.swift */,
 				1E41B13A2091ED98007F7F21 /* Main.storyboard */,
 				1E41B13D2091ED9A007F7F21 /* Assets.xcassets */,
 				1E41B13F2091ED9A007F7F21 /* LaunchScreen.storyboard */,
 				1E41B1422091ED9A007F7F21 /* Info.plist */,
-				1E41B16C2091FAF9007F7F21 /* TomodatiTableViewController.swift */,
-				1E41B16D2091FAF9007F7F21 /* TomodatiTableViewController.xib */,
-				1EAAA01C20940AE30024ED4D /* TomodatiTableViewCell.swift */,
-				1EAAA01D20940AE30024ED4D /* TomodatiTableViewCell.xib */,
 				1EF5BF08209F45D700274827 /* GoogleService-Info.plist */,
 				D0829099AF4E41CAA191A21F /* Pods */,
 			);
@@ -327,8 +321,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EAAA01F20940AE30024ED4D /* TomodatiTableViewCell.xib in Resources */,
-				1E41B16F2091FAF9007F7F21 /* TomodatiTableViewController.xib in Resources */,
 				1E87C43F20A9D9160007D8E5 /* icon_150030_256.png in Resources */,
 				1E41B1412091ED9A007F7F21 /* LaunchScreen.storyboard in Resources */,
 				1E41B13E2091ED9A007F7F21 /* Assets.xcassets in Resources */,
@@ -439,15 +431,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E41B16E2091FAF9007F7F21 /* TomodatiTableViewController.swift in Sources */,
 				1E41B1392091ED98007F7F21 /* ViewController.swift in Sources */,
 				1EF5BF0D209F519000274827 /* LogInViewController.swift in Sources */,
 				1EF5BF0B209F50EC00274827 /* SignUpViewController.swift in Sources */,
 				1E41B1652091FA71007F7F21 /* TourokuViewController.swift in Sources */,
-				1EAAA01E20940AE30024ED4D /* TomodatiTableViewCell.swift in Sources */,
+				1E0CCCE920C9A911009E092C /* NewTomodatiViewController.swift in Sources */,
 				1E41B1372091ED98007F7F21 /* AppDelegate.swift in Sources */,
 				1E41B1672091FA83007F7F21 /* HomeViewController.swift in Sources */,
 				1E41B16B2091FACE007F7F21 /* QRViewController.swift in Sources */,
+				1E63D74620AD7A0E00D4D480 /* TomodatiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,11 +614,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E7J382B4C3;
+				DEVELOPMENT_TEAM = Z39DQFT7A6;
 				INFOPLIST_FILE = NoA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoA;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoAh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -639,11 +634,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E7J382B4C3;
+				DEVELOPMENT_TEAM = Z39DQFT7A6;
 				INFOPLIST_FILE = NoA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoA;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoAh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -658,7 +656,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NoATests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoATests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -675,7 +677,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NoATests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoATests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -691,7 +697,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NoAUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoAUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -707,7 +717,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NoAUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.harappa.NoAUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

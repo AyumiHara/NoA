@@ -15,11 +15,23 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
     // カメラやマイクの入出力を管理するオブジェクトを生成
     private let session = AVCaptureSession()
     
+    @IBOutlet var tourokuButton: UIButton!
+    @IBOutlet var cameraView : UIView!
+    var videoLayer: AVCaptureVideoPreviewLayer?
+    var jouhouArry : [String] = []
+    var namae : String!
+    var adana : String!
+    var syumi : String!
+    var syussin : String!
+    var SNS : String!
+    var syoukai : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         // カメラやマイクのデバイスそのものを管理するオブジェクトを生成（ここではワイドアングルカメラ・ビデオ・背面カメラを指定）
+        
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera],
                                                                 mediaType: .video,
                                                                 position: .back)
@@ -46,10 +58,10 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                         metadataOutput.metadataObjectTypes = [.qr]
                         
                         // 背面カメラの映像を画面に表示するためのレイヤーを生成
-                        let previewLayer = AVCaptureVideoPreviewLayer(session: self.session)
-                        previewLayer.frame = self.view.bounds
-                        previewLayer.videoGravity = .resizeAspectFill
-                        self.view.layer.addSublayer(previewLayer)
+                        let cameraView = AVCaptureVideoPreviewLayer(session: self.session)
+                        cameraView.frame = CGRect(x:0,y:0,width:self.view.bounds.width,height:580)
+                        cameraView.videoGravity = .resizeAspectFill
+                        self.view.layer.addSublayer(cameraView)
                         
                         // 読み取り開始
                         self.session.startRunning()
@@ -59,6 +71,8 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
                 print("Error occured while creating video device input: \(error)")
             }
         }
+        
+        //tourokuButton.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,13 +80,14 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         for metadata in metadataObjects as! [AVMetadataMachineReadableCodeObject] {
             // QRコードのデータかどうかの確認
             if metadata.type != .qr { continue }
             
             // QRコードの内容が空かどうかの確認
-            if metadata.stringValue == nil { continue }
+            if metadata.stringValue == nil { continue } 
             
             /*
              このあたりで取得したQRコードを使ってゴニョゴニョする
@@ -80,15 +95,88 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
              以下はQRコードに紐づくWebサイトをSafariで開く例
              */
             
-            // URLかどうかの確認
-            if let url = URL(string: metadata.stringValue!) {
-                // 読み取り終了
-                self.session.stopRunning()
-                // QRコードに紐付いたURLをSafariで開く
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                
-                break
-            }
+            self.session.stopRunning()
+            let str = String(metadata.stringValue!)
+            print(str)
+            jouhouArry = str.components(separatedBy: "|")
+            print(jouhouArry)
+            print(jouhouArry[0])
+            print(jouhouArry[1])
+            print(jouhouArry[2])
+            print(jouhouArry[3])
+            print(jouhouArry[4])
+            print(jouhouArry[5])
+            
+            namae = jouhouArry[0]
+            adana = jouhouArry[1]
+            syumi = jouhouArry[2]
+            syussin = jouhouArry[3]
+            SNS = jouhouArry[4]
+            syoukai = jouhouArry[5]
+            
+            /* let storyboard: UIStoryboard = self.storyboard!
+             let nextView = storyboard.instantiateViewController(withIdentifier: "Tuika") as! TomodatiViewController
+             self.present(nextView, animated: true, completion: nil)
+             */
+            break
+            
+            
+            
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print(jouhouArry)
+        
+        if jouhouArry.isEmpty {
+            print("配列がからです")
+            let alert: UIAlertController = UIAlertController(title: "アラート表示", message: "QRコードが見つかっていません", preferredStyle:  UIAlertControllerStyle.alert)
+            
+            // ② Actionの設定
+            // Action初期化時にタイトル, スタイル, 押された時に実行されるハンドラを指定する
+            // 第3引数のUIAlertActionStyleでボタンのスタイルを指定する
+            // OKボタン
+            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+                // ボタンが押された時の処理を書く（クロージャ実装）
+                (action: UIAlertAction!) -> Void in
+                print("OK")
+            })
+            
+            alert.addAction(defaultAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+      
+        var secondViewController:TomodatiViewController = segue.destination as! TomodatiViewController
+        secondViewController.namae = namae
+        secondViewController.adana = adana
+        secondViewController.syumi = syumi
+        secondViewController.syussin = syussin
+        secondViewController.SNS = SNS
+        secondViewController.syoukai = syoukai
+        secondViewController.torimaArry = jouhouArry
+
+        
+        
+        print("このデータを送る")
+        print(secondViewController.namae)
+        print(secondViewController.namae)
+        print(secondViewController.syumi)
+        print(secondViewController.syussin)
+        print(secondViewController.SNS)
+        print(secondViewController.syoukai)
+        print("このデータを送った")
+ 
+        }
+        
+        
+    }
+    
+    
+    
+    @IBAction func touroku() {
+        self.performSegue(withIdentifier: "toTuika", sender: self)
+    }
+    
 }
+
