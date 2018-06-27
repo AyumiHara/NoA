@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5YA-f3-4JQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5YA-f3-4JQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,7 +38,6 @@
                                 <state key="normal" title="sign up"/>
                                 <connections>
                                     <action selector="willSignup" destination="5YA-f3-4JQ" eventType="touchUpInside" id="g1j-Py-yPz"/>
-                                    <segue destination="t06-m1-xY2" kind="presentation" identifier="toLogin" id="4cG-Ik-6hi"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOR-S2-PvK">
@@ -69,6 +68,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="9bR-N9-CJb" id="qdH-CX-lij"/>
                         <outlet property="passwordTextField" destination="eOR-S2-PvK" id="hmM-Oc-ed2"/>
+                        <segue destination="t06-m1-xY2" kind="show" identifier="toLogin" id="Wr1-Mq-9CE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnF-Au-EFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +103,6 @@
                                 <state key="normal" title="log in"/>
                                 <connections>
                                     <action selector="didRegisterUser" destination="t06-m1-xY2" eventType="touchUpInside" id="YdO-lL-6bm"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="toVC" id="g7N-Xd-j2f"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIT-bm-VZZ">
@@ -121,11 +120,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="wGl-xH-HgY" id="HgW-d4-nA3"/>
                         <outlet property="passwordTextField" destination="S6d-G4-cZU" id="z2L-Y0-zX1"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toTouroku" id="e9l-64-aQX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLx-lO-b4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="1073"/>
+            <point key="canvasLocation" x="-332" y="860"/>
         </scene>
         <!--Touroku View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -147,7 +147,6 @@
                                 <state key="normal" title="登録"/>
                                 <connections>
                                     <action selector="tourokuWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9n1-ei-8pb"/>
-                                    <segue destination="JFu-rk-4YQ" kind="presentation" identifier="ToHome" id="t1b-dO-QQS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5k-x6-zOA">
@@ -245,6 +244,7 @@
                         <outlet property="syoukaiTextView" destination="8WP-1g-X6x" id="cUT-vX-vdZ"/>
                         <outlet property="syumiTextField" destination="pi3-NA-0Px" id="fSB-pz-Jcr"/>
                         <outlet property="syussinTextfield" destination="yrd-Rl-o4Q" id="dST-sL-ENc"/>
+                        <segue destination="JFu-rk-4YQ" kind="show" identifier="toHome" id="3cZ-7u-jXe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -254,14 +254,14 @@
         <!--Home-->
         <scene sceneID="J4a-dE-fEA">
             <objects>
-                <viewController storyboardIdentifier="Home" title="Home" id="JFu-rk-4YQ" customClass="HomeViewController" customModule="NoA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" title="Home" automaticallyAdjustsScrollViewInsets="NO" id="JFu-rk-4YQ" customClass="HomeViewController" customModule="NoA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1nR-Xw-RYC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kau-wk-v1D">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kau-wk-v1D">
                                 <rect key="frame" x="67" y="90" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfq-I4-vK5">
                                 <rect key="frame" x="67" y="393" width="240" height="40"/>
@@ -279,18 +279,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zyD-ci-Mf7">
-                                <rect key="frame" x="67" y="489" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="ここに自己紹介を表示する" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DBI-Fv-t4x">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" red="0.40000000000000002" green="0.7725490196" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ab-a6-Fcx">
                                 <rect key="frame" x="174" y="625" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -306,9 +294,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="ホーム" id="Iga-HV-XuC">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="If7-Gg-xhh">
+                                        <barButtonItem key="leftBarButtonItem" title="友達一覧" id="If7-Gg-xhh">
                                             <connections>
-                                                <segue destination="IuL-xR-6u8" kind="presentation" id="Obq-sL-lhB"/>
+                                                <action selector="ichiraneBottunTapped" destination="JFu-rk-4YQ" id="POz-3d-tul"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="3WK-3e-tho">
@@ -319,6 +307,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ここに紹介文が入る" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KS8-Ne-svL">
+                                <rect key="frame" x="69" y="489" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.7725490196" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BZf-5M-SBN"/>
@@ -327,12 +322,13 @@
                         <outlet property="QRImageView" destination="kau-wk-v1D" id="wxW-iU-7HI"/>
                         <outlet property="adanaLabel" destination="4KR-Hb-8jZ" id="Oqx-nM-tNJ"/>
                         <outlet property="namaeLabel" destination="pfq-I4-vK5" id="z6y-VK-6Iz"/>
-                        <outlet property="syoukaiTextView" destination="DBI-Fv-t4x" id="Jtr-qq-gmn"/>
+                        <outlet property="syoukaiTextView" destination="KS8-Ne-svL" id="gP8-d0-NAf"/>
+                        <segue destination="IuL-xR-6u8" kind="show" identifier="toIchiran" id="pd0-1O-TYn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z27-Iy-sA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="-156.07196401799101"/>
+            <point key="canvasLocation" x="1460" y="-492"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OY0-bV-LYE">
@@ -352,7 +348,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-dy-gvl">
                                                 <rect key="frame" x="137" y="583" width="100" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="backgroundColor" red="0.40000000000000002" green="0.7725490196" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="登録する！">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -382,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sM-we-UaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2364" y="-156"/>
+            <point key="canvasLocation" x="2812" y="-156"/>
         </scene>
         <!--Tomodati View Controller-->
         <scene sceneID="9No-sH-1qJ">
@@ -506,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kV-8Q-x9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3418" y="-156"/>
+            <point key="canvasLocation" x="3902" y="-156"/>
         </scene>
         <!--New Tomodati View Controller-->
         <scene sceneID="trf-5K-0Uz">
@@ -570,8 +566,9 @@
         <image name="戻る" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pd0-1O-TYn"/>
         <segue reference="5e6-U6-kbh"/>
-        <segue reference="t1b-dO-QQS"/>
+        <segue reference="dr5-kv-HCc"/>
         <segue reference="WHd-U4-rhd"/>
     </inferredMetricsTieBreakers>
 </document>

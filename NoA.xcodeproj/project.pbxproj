@@ -21,6 +21,8 @@
 		1E41B16B2091FACE007F7F21 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41B16A2091FACE007F7F21 /* QRViewController.swift */; };
 		1E63D74620AD7A0E00D4D480 /* TomodatiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63D74520AD7A0E00D4D480 /* TomodatiViewController.swift */; };
 		1E87C43F20A9D9160007D8E5 /* icon_150030_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87C43E20A9D9160007D8E5 /* icon_150030_256.png */; };
+		1EF06CC220E418A100D98FF4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF06CC020E418A100D98FF4 /* CustomTableViewCell.swift */; };
+		1EF06CC320E418A100D98FF4 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF06CC120E418A100D98FF4 /* CustomTableViewCell.xib */; };
 		1EF5BF09209F45D700274827 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5BF08209F45D700274827 /* GoogleService-Info.plist */; };
 		1EF5BF0B209F50EC00274827 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5BF0A209F50EC00274827 /* SignUpViewController.swift */; };
 		1EF5BF0D209F519000274827 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5BF0C209F519000274827 /* LogInViewController.swift */; };
@@ -65,6 +67,8 @@
 		1E41B16A2091FACE007F7F21 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		1E63D74520AD7A0E00D4D480 /* TomodatiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomodatiViewController.swift; sourceTree = "<group>"; };
 		1E87C43E20A9D9160007D8E5 /* icon_150030_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_150030_256.png; path = ../../../Downloads/icon_150030_256.png; sourceTree = "<group>"; };
+		1EF06CC020E418A100D98FF4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		1EF06CC120E418A100D98FF4 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		1EF5BF08209F45D700274827 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1EF5BF0A209F50EC00274827 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1EF5BF0C209F519000274827 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				1E63D74520AD7A0E00D4D480 /* TomodatiViewController.swift */,
 				1E0CCCE820C9A911009E092C /* NewTomodatiViewController.swift */,
 				1E41B13A2091ED98007F7F21 /* Main.storyboard */,
+				1EF06CC020E418A100D98FF4 /* CustomTableViewCell.swift */,
+				1EF06CC120E418A100D98FF4 /* CustomTableViewCell.xib */,
 				1E41B13D2091ED9A007F7F21 /* Assets.xcassets */,
 				1E41B13F2091ED9A007F7F21 /* LaunchScreen.storyboard */,
 				1E41B1422091ED9A007F7F21 /* Info.plist */,
@@ -323,6 +329,7 @@
 			files = (
 				1E87C43F20A9D9160007D8E5 /* icon_150030_256.png in Resources */,
 				1E41B1412091ED9A007F7F21 /* LaunchScreen.storyboard in Resources */,
+				1EF06CC320E418A100D98FF4 /* CustomTableViewCell.xib in Resources */,
 				1E41B13E2091ED9A007F7F21 /* Assets.xcassets in Resources */,
 				1E41B13C2091ED98007F7F21 /* Main.storyboard in Resources */,
 				1EF5BF09209F45D700274827 /* GoogleService-Info.plist in Resources */,
@@ -437,6 +444,7 @@
 				1E41B1652091FA71007F7F21 /* TourokuViewController.swift in Sources */,
 				1E0CCCE920C9A911009E092C /* NewTomodatiViewController.swift in Sources */,
 				1E41B1372091ED98007F7F21 /* AppDelegate.swift in Sources */,
+				1EF06CC220E418A100D98FF4 /* CustomTableViewCell.swift in Sources */,
 				1E41B1672091FA83007F7F21 /* HomeViewController.swift in Sources */,
 				1E41B16B2091FACE007F7F21 /* QRViewController.swift in Sources */,
 				1E63D74620AD7A0E00D4D480 /* TomodatiViewController.swift in Sources */,

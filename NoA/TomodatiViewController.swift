@@ -20,30 +20,30 @@ class TomodatiViewController: UIViewController {
     @IBOutlet var syoukaiTextView: UITextView!
    
     
-    var namae : String = ""
-    var adana : String = ""
-    var syumi : String = ""
-    var syussin : String = ""
-    var SNS : String = ""
-    var syoukai : String = ""
-    var torimaArry : [String] = []
-    var purohuArry : [Dictionary<String, String>] = []
+    static var namae : String = ""
+    static var adana : String = ""
+    static var syumi : String = ""
+    static var syussin : String = ""
+    static var SNS : String = ""
+    static var syoukai : String = ""
+     var torimaArry : [String] = []
+    static var purohuArry : Dictionary<String, String>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        namaeLabel.text = namae
-        adanaLabel.text = adana
-        syumiLabel.text = syumi
-        syussinLabel.text = syussin
-        SNSLabel.text = SNS
-        syoukaiTextView.text = syoukai
+        namaeLabel.text = TomodatiViewController.namae
+        adanaLabel.text = TomodatiViewController.adana
+        syumiLabel.text = TomodatiViewController.syumi
+        syussinLabel.text = TomodatiViewController.syussin
+        SNSLabel.text = TomodatiViewController.SNS
+        syoukaiTextView.text = TomodatiViewController.syoukai
         
         
         
         
         if saveData.array(forKey: "WORD") != nil {
-            purohuArry = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
+           TomodatiViewController.purohuArry = saveData.dictionary(forKey: "WORD") as! [String : String]
         }
 
         // Do any additional setup after loading the view.
@@ -56,15 +56,16 @@ class TomodatiViewController: UIViewController {
     
     @IBAction func save() {
         
-        let purohuDictionary = ["namae":namae, "adana":adana, "syumi":syumi, "syussin":syussin, "sns":SNS, "syoukai":syoukai] as [String : Any]
+        let purohuDictionary = ["namae":TomodatiViewController.namae, "adana":TomodatiViewController.adana, "syumi":TomodatiViewController.syumi, "syussin":TomodatiViewController.syussin, "sns":TomodatiViewController.SNS, "syoukai":TomodatiViewController.syoukai] as [String: String]
         
         
         
         print("これが辞書")
         print(purohuDictionary)
         
-        purohuArry.append(purohuDictionary as! [String : String])
+        //purohuArry.append(purohuDictionary as! [String : String])
         saveData.set(purohuDictionary, forKey: "WORD")
+        print(saveData.dictionary(forKey: "WORD"))
         let actionAlert = UIAlertController(title: "プロフを保存",
                                             message: "プロフを保存しますか？",
                                             preferredStyle: UIAlertControllerStyle.actionSheet)

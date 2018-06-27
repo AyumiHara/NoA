@@ -102,7 +102,7 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
     @IBAction func touroku(sender: UIButton) {
         //投稿のためのメソッド
         create()
-        
+       
     }
     
     //Returnキーを押すと、キーボードを隠す
@@ -143,9 +143,6 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
         print(createOkuruImage)
         
         
-        
-        
-        
         let sendData:[String:Any] = [
             "user": (Auth.auth().currentUser?.uid)!,
             "namaecontent": namaetext,
@@ -161,6 +158,9 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
         
         message.setValue(sendData)
         
+        self.performSegue(withIdentifier: "toHome", sender: nil)
+
+        
         //ロートからログインしているユーザーのIDをchildにしてデータを作成
         //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
@@ -173,15 +173,14 @@ class TourokuViewController: UIViewController,UITextFieldDelegate, UIImagePicker
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        create()
         print("送るイメージの確認")
         print(okuruImage)
         
-        var secondViewController:HomeViewController = segue.destination as! HomeViewController
-        secondViewController.namae = namaeTextField.text!
-        secondViewController.adana = adanaTextField.text!
-        secondViewController.syoukai = syoukaiTextView.text!
-        secondViewController.QRImage = okuruImage
+        
+        HomeViewController.namae = namaeTextField.text!
+        HomeViewController.adana = adanaTextField.text!
+        HomeViewController.syoukai = syoukaiTextView.text!
+        HomeViewController.QRImage = okuruImage
         print("これが送るイメージ")
         print(okuruImage)
     }

@@ -19,15 +19,15 @@ class HomeViewController: UIViewController {
     var snap: DataSnapshot! //FetchしたSnapshotsを格納する変数
     var kosu: Int = 0
     var dainyu: Int = 0
-    var namae: String = ""
-    var adana: String = ""
-    var syoukai: String = ""
-    var QRImage: UIImage!
+    static var namae: String = ""
+    static var adana: String = ""
+    static var syoukai: String = ""
+    static var QRImage: UIImage = UIImage()
     
     @IBOutlet var namaeLabel: UILabel!
     @IBOutlet var adanaLabel: UILabel!
     @IBOutlet var syoukaiTextView: UITextView!
-    @IBOutlet var QRImageView: UIImageView!
+    @IBOutlet  var QRImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,12 @@ class HomeViewController: UIViewController {
         dainyu = kosu - 1
         print(dainyu)
         print("QRイメージおくれてますか")
-        print(QRImage)
+        print(HomeViewController.QRImage)
         
-       namaeLabel.text = String(namae)
-       adanaLabel.text = String(adana)
-       syoukaiTextView.text = String(syoukai)
-       QRImageView.image = QRImage!
+        namaeLabel.text = String(HomeViewController.namae)
+        adanaLabel.text = String(HomeViewController.adana)
+        syoukaiTextView.text = String(HomeViewController.syoukai)
+        QRImageView.image = HomeViewController.QRImage
        
         
         
@@ -135,8 +135,16 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBAction func composeBottunTapped() {
-        self.performSegue(withIdentifier: "Compose", sender: self)
+    @IBAction func ichiraneBottunTapped() {
+        if (TomodatiViewController.purohuArry != nil){
+        self.performSegue(withIdentifier: "toIchiran", sender: self)
+        } else{
+            let alert = UIAlertController(title: "友達がいません", message: "＋ボタンから友達のQRを読み取ってください", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            print("アラート表示")
+
+        }
     }
     
   

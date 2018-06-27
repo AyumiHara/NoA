@@ -25,13 +25,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         //ログインしていれば、遷移
         //FIRAuthがユーザー認証のためのフレーム
         //checkUserVerifyでチェックして、ログイン済みなら画面遷移
+        print(self.checkUserVerify())
         if self.checkUserVerify() {
-            self.transitionToView()
+             print("toTouroku動いてます")
+            self.performSegue(withIdentifier: "toTouroku", sender: nil)
+           
         }
     }
     
@@ -48,6 +51,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func didRegisterUser() {
         //ログインのためのメソッド
         login()
+        
     }
     //Returnキーを押すと、キーボードを隠す
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -56,9 +60,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     //ログイン完了後に、ListViewControllerへの遷移のためのメソッド
-    func transitionToView()  {
-        self.performSegue(withIdentifier: "toVC", sender: self)
-    }
+ 
     
     func login() {
         //EmailとPasswordのTextFieldに文字がなければ、その後の処理をしない
@@ -75,7 +77,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     if self.checkUserValidate(user: Auth.auth().currentUser!) {
                         // 完了済みなら、ListViewControllerに遷移
                         print(Auth.auth().currentUser)
-                        self.transitionToView()
+                     
+                        self.performSegue(withIdentifier: "toTouroku", sender: nil)
                     }else {
                         // 完了していない場合は、アラートを表示
                         self.presentValidateAlert()
@@ -83,8 +86,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 }
             }else {
                 print("error...\(error?.localizedDescription)")
-                self.presentValidateAlert()
-                
+                let alert = UIAlertController(title: "認証エラー", message: "アドレスまたはパスワードが間違えているか、アカウントが登録されていません。", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         })
     }

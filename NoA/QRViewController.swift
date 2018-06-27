@@ -148,23 +148,23 @@ class QRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
         } else {
       
         var secondViewController:TomodatiViewController = segue.destination as! TomodatiViewController
-        secondViewController.namae = namae
-        secondViewController.adana = adana
-        secondViewController.syumi = syumi
-        secondViewController.syussin = syussin
-        secondViewController.SNS = SNS
-        secondViewController.syoukai = syoukai
+        TomodatiViewController.namae = namae
+        TomodatiViewController.adana = adana
+        TomodatiViewController.syumi = syumi
+        TomodatiViewController.syussin = syussin
+        TomodatiViewController.SNS = SNS
+        TomodatiViewController.syoukai = syoukai
         secondViewController.torimaArry = jouhouArry
 
         
         
         print("このデータを送る")
-        print(secondViewController.namae)
-        print(secondViewController.namae)
-        print(secondViewController.syumi)
-        print(secondViewController.syussin)
-        print(secondViewController.SNS)
-        print(secondViewController.syoukai)
+        print(TomodatiViewController.namae)
+        print(TomodatiViewController.adana)
+        print(TomodatiViewController.syumi)
+        print(TomodatiViewController.syussin)
+        print(TomodatiViewController.SNS)
+        print(TomodatiViewController.syoukai)
         print("このデータを送った")
  
         }

@@ -25,11 +25,11 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         passwordTextField.isSecureTextEntry = true // 文字を非表示に
         
         if self.checkUserVerify() {
-//            self.transitionToView()
             let storyboard: UIStoryboard = self.storyboard!
             let nextView = storyboard.instantiateViewController(withIdentifier: "Home")
-            present(nextView, animated: true, completion: nil)
+            //present(nextView, animated: true, completion: nil)
             print("遷移なう")
+ 
         }
         
        // self.layoutFacebookButton()
@@ -47,7 +47,9 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func willSignup() {
         //サインアップのための関数
+        
         signup()
+        
     }
     //ログイン画面への遷移ボタン
     @IBAction func willTransitionToLogin() {
@@ -89,6 +91,18 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
                         // エラーがない場合にはそのままログイン画面に飛び、ログインしてもらう
                         self.transitionToLogin()
                         print("大丈夫なメール")
+                        
+                        let alert = UIAlertController(title: "メール認証", message: "ユーザー認証メールを送りました。", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{
+                             (action: UIAlertAction!) in
+                            self.performSegue(withIdentifier: "toLogin", sender: nil)
+                        }))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        self.logout()
+                        
+                        
                     }else {
                         self.presentValidateAlert()
                         print("\(error?.localizedDescription)")
@@ -96,11 +110,11 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
                     }
                 })
             }else {
-                self.presentValidateAlert()
+                //self.presentValidateAlert()
                 print("\(error?.localizedDescription)")
                 print("これも大丈夫じゃないメール")
                
-                    let alert = UIAlertController(title: "エラー", message: "ユーザー登録エラーです。すでにこのアドレスが使われている可能性があります。ログインページからログインまたは、別のアカウントで試してください", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "エラー", message: "ユーザー登録エラーです。すでにこのアドレスが使われている可能性があります。ログインページからログインまたは、別のアカウントで試してください。またパスワードは６文字以上にしてください。", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 
@@ -119,7 +133,18 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         print("アラート表示")
     }
     
-    
+    func logout() {
+        do {
+            //do-try-catchの中で、FIRAuth.auth()?.signOut()を呼ぶだけで、ログアウトが完了
+            try Auth.auth().signOut()
+            
+           
+           
+        }catch let error as NSError {
+            print("\(error.localizedDescription)")
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

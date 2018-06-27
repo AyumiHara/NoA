@@ -12,15 +12,26 @@ class NewTomodatiViewController: UIViewController,UITableViewDataSource,UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    var purohuArray : [Dictionary<String, String>] = []
+    var purohuArray : Dictionary<String, String>!
     let saveData = UserDefaults.standard
     @IBOutlet var namaeLabel : UILabel!
     @IBOutlet var adanalabel : UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if saveData.dictionary(forKey: "WORD") != nil{
+            purohuArray = saveData.dictionary(forKey: "WORD") as! [String : String]
+        }
+        print(purohuArray)
+        tableView.reloadData()
+        print("リロード中")
+        
         print("ニュー友達")
-        tableView.register(UINib(nibName: "TomodatiTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+         self.tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        
+        tableView.delegate=self
+        tableView.dataSource=self
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,11 +43,7 @@ class NewTomodatiViewController: UIViewController,UITableViewDataSource,UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if saveData.array(forKey: "WORD") != nil{
-            purohuArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
-        }
-        tableView.reloadData()
-        print("リロード中")
+     
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -44,29 +51,45 @@ class NewTomodatiViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return purohuArray.count
+        return 1
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tomodatiCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let nowIndexPathDictionary = purohuArray[indexPath.row]
+      let cell = self.tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell
         
         
-        print("セルの中に入るやつ")
-        print(nowIndexPathDictionary["namae"] as Any)
-        print(nowIndexPathDictionary["namae"] as Any)
+        print(purohuArray)
         
-        tomodatiCell.textLabel?.text = nowIndexPathDictionary["namae"]
-        //adanalabel.text = nowIndexPathDictionary["adana"]
+      
         
-        return tomodatiCell
+        cell?.namaeLabel.text = purohuArray["namae"]
+        cell?.adanaLabel.text = purohuArray["adana"]
+        
+        
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //セルの選択解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        TomodatiViewController.namae = purohuArray["namae"]!
+        TomodatiViewController.adana = purohuArray["adana"]!
+        TomodatiViewController.syussin = purohuArray["syussin"]!
+        TomodatiViewController.SNS = purohuArray["sns"]!
+        TomodatiViewController.syoukai = purohuArray["syoukai"]!
+        
+        //ここに遷移処理を書く
+        self.present(TomodatiViewController(), animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   
     
     // MARK: - Table view data source
     
