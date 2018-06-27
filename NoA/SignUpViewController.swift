@@ -51,11 +51,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         transitionToLogin()
     }
     
-/*    @IBAction func willLoginWithFacebook() {
-        self.loginWithFacebook()
-    }
- */
-    
+
     func transitionToLogin() {
         self.performSegue(withIdentifier: "toLogin", sender: self)
     }
@@ -82,7 +78,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         //FIRAuth.auth()?.createUserWithEmailでサインアップ
         //第一引数にEmail、第二引数にパスワード
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-            
             //エラーがないことを確認
             if error == nil{
                 // メールのバリデーションを行う
@@ -101,11 +96,14 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
                 self.presentValidateAlert()
                 print("\(error?.localizedDescription)")
                 print("これも大丈夫じゃないメール")
+               
+                    let alert = UIAlertController(title: "エラー", message: "ユーザー登録エラーです。すでにこのアドレスが使われている可能性があります。ログインページからログインまたは、別のアカウントで試してください", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                
             }
         })
     }
-    
-    
     
     func checkUserValidate(user: User)  -> Bool {
         return user.isEmailVerified

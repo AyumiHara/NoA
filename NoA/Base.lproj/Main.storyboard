@@ -19,7 +19,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bR-N9-CJb">
                                 <rect key="frame" x="149" y="145" width="210" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -29,8 +29,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="log in"/>
                                 <connections>
-                                    <action selector="willTransitionToLogin" destination="5YA-f3-4JQ" eventType="touchUpInside" id="2qy-4A-SfJ"/>
-                                    <segue destination="t06-m1-xY2" kind="presentation" identifier="toLogin" id="8bR-cc-0a8"/>
+                                    <action selector="willTransitionToLogin" destination="5YA-f3-4JQ" eventType="touchUpInside" id="18o-mw-JaU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syQ-Cw-0hx">
@@ -38,8 +37,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="sign up"/>
                                 <connections>
-                                    <action selector="willSignup" destination="5YA-f3-4JQ" eventType="touchUpInside" id="6ZM-2v-eHW"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="toView" id="La8-JP-5gq"/>
+                                    <action selector="willSignup" destination="5YA-f3-4JQ" eventType="touchUpInside" id="g1j-Py-yPz"/>
+                                    <segue destination="t06-m1-xY2" kind="presentation" identifier="toLogin" id="4cG-Ik-6hi"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOR-S2-PvK">
@@ -68,8 +67,8 @@
                         <viewLayoutGuide key="safeArea" id="7yt-P6-gcX"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="9bR-N9-CJb" id="Teq-pP-7ID"/>
-                        <outlet property="passwordTextField" destination="eOR-S2-PvK" id="GjX-v5-Tp1"/>
+                        <outlet property="emailTextField" destination="9bR-N9-CJb" id="qdH-CX-lij"/>
+                        <outlet property="passwordTextField" destination="eOR-S2-PvK" id="hmM-Oc-ed2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnF-Au-EFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,14 +85,14 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wGl-xH-HgY">
                                 <rect key="frame" x="82" y="141" width="210" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6d-G4-cZU">
                                 <rect key="frame" x="82" y="253" width="210" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -107,6 +106,14 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="toVC" id="g7N-Xd-j2f"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIT-bm-VZZ">
+                                <rect key="frame" x="162" y="484" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="sign up"/>
+                                <connections>
+                                    <segue destination="5YA-f3-4JQ" kind="presentation" id="Qzh-U8-9iv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DEM-dB-SUG"/>
@@ -118,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLx-lO-b4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-332" y="823"/>
+            <point key="canvasLocation" x="-332" y="822.63868065967017"/>
         </scene>
         <!--Touroku View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -325,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z27-Iy-sA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="-156"/>
+            <point key="canvasLocation" x="1460" y="-156.07196401799101"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OY0-bV-LYE">
@@ -535,7 +542,7 @@
                                     <navigationItem title="友達一覧" id="zyz-Ua-Dn1">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="SvV-R2-kgD">
                                             <connections>
-                                                <segue destination="JFu-rk-4YQ" kind="presentation" id="le1-AP-iFq"/>
+                                                <segue destination="JFu-rk-4YQ" kind="presentation" id="dr5-kv-HCc"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TfO-BK-hjn">
