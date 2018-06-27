@@ -41,7 +41,9 @@ class HomeViewController: UIViewController {
        adanaLabel.text = String(adana)
        syoukaiTextView.text = String(syoukai)
        QRImageView.image = QRImage!
-      
+       
+        
+        
         if self.checkUserVerify() {
            dispAlert()
         }

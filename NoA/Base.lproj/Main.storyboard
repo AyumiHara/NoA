@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLx-lO-b4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-332" y="822.63868065967017"/>
+            <point key="canvasLocation" x="-626" y="1073"/>
         </scene>
         <!--Touroku View Controller-->
         <scene sceneID="tne-QT-ifu">

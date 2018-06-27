@@ -25,7 +25,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate {
         passwordTextField.isSecureTextEntry = true // 文字を非表示に
         
         if self.checkUserVerify() {
-            self.transitionToView()
+//            self.transitionToView()
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextView = storyboard.instantiateViewController(withIdentifier: "Home")
+            present(nextView, animated: true, completion: nil)
             print("遷移なう")
         }
         
